@@ -16,3 +16,18 @@ exports.homepage = async(req, res) => {
 	}
 
 }
+
+/**
+ * GET /categories
+ * Categories
+**/
+exports.exploreCategories = async(req, res) => {
+	try {
+			const limitNumber = 20;
+			const categories = await Category.find({}).limit(limitNumber);
+			res.render('categories', { title: 'Cooking Blog - Categories', categories } );
+	} catch (e) {
+		res.status(500).send({message: error.message || "Error occurred."});
+	}
+
+}
