@@ -1,0 +1,35 @@
+
+
+/* category cards */
+.category__link {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	transition: 250ms all;
+}
+
+.category__link:hover {
+	transform: scale(1.1);
+}
+
+.category__img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	margin-bottom: 10px;
+	box-shadow: 0px 3px 6px rgba(0,0,0,.23);
+	overflow: hidden;
+	border-radius: 8px;
+
+}
+
+.category__img--large {
+	height: 300px;
+}
+
+.category__img img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
