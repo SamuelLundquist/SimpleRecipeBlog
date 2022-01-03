@@ -1,4 +1,5 @@
-
+require('../models/database');
+const category = require('../models/Category');
 
 
 /**
@@ -8,7 +9,5 @@
 exports.homepage = async(req, res) => {
 
 	res.render('index', { title: 'Cooking Blog - Home' } );
-
-
 
 }
