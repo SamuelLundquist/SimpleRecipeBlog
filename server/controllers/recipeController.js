@@ -1,5 +1,5 @@
 require('../models/database');
-const category = require('../models/Category');
+const Category = require('../models/Category');
 
 
 /**
@@ -7,7 +7,12 @@ const category = require('../models/Category');
  * Homepage
 **/
 exports.homepage = async(req, res) => {
-
-	res.render('index', { title: 'Cooking Blog - Home' } );
+	try {
+			const limitNumber = 5;
+			const categories = await Category.find({}).limit(limitNumber);
+			res.render('index', { title: 'Cooking Blog - Home', categories } );
+	} catch (e) {
+		res.status(500).send({message: error.message || "Error occurred."});
+	}
 
 }
