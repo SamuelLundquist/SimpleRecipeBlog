@@ -17,7 +17,6 @@ a {
 
 /* category cards */
 .category__link {
-	display: block;
 	text-align: center;
 	text-decoration: none;
 	transition: 250ms all;
