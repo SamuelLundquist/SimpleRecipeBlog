@@ -8,27 +8,39 @@
 <!-- CTA End -->
 <!-- Form Start -->
 <section class="row justify-content-center">
+	<!-- Messages Start -->
+	<% if(infoErrorsObj != '') { %>
+	<div class="alert alert-danger col-8" role="alert">
+		<%= infoErrorsObj[0].message %>
+	</div>
+	<% } %>
+	<% if(infoSubmitObj != '') { %>
+	<div class="alert alert-success col-8" role="alert">
+		<%= infoSubmitObj %>
+	</div>
+	<% } %>
+	<!-- Messages End -->
 	<div class="col-8">
 		<form class="" action="/submit-recipe" enctype="multipart/form-data" method="post">
 			<div class="row g-3">
 				<div class="col-12">
 					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" name="email" placeholder="Enter your email." id="email" required>
+					<input type="email" class="form-control" name="email" placeholder="Enter your email." id="email">
 				</div>
 				<div class="col-12">
 					<label for="name" class="form-label">Recipe Name</label>
-					<input type="text" class="form-control" name="name" placeholder="Enter your recipe name." id="name" required>
+					<input type="text" class="form-control" name="name" placeholder="Enter your recipe name." id="name">
 				</div>
 				<div class="col-12">
-					<label for="description" class="form-label">Description</label>
-					<textarea type="text" class="form-control" name="description" id="description" cols="30" rows="4" placeholder="Recipe description." required></textarea>
+					<label for="description" class="form-label">Recipe Description</label>
+					<textarea type="text" class="form-control" name="description" id="description" cols="30" rows="4" placeholder="Add some info about your recipe..."></textarea>
 				</div>
 				<div class="col-12">
 					<label for="ingredients" class="form-label">Ingredients</label>
 					<small>Example: Ice</small>
 					<div class="ingredientList">
 						<div class="ingredientDiv mb-1">
-							<input type="text" class="form-control" name="ingredients" id="ingredients" required>
+							<input type="text" class="form-control" name="ingredients" id="ingredients">
 						</div>
 					</div>
 				</div>
