@@ -10,13 +10,16 @@ const Recipe = require('../models/Recipe');
 exports.homepage = async(req, res) => {
 	try {
 			const categoriesLimitNumber = 5;
-			const latestLimitNumber = 4;
+			const recipeLimitNumber = 4;
 			const categories = await Category.find({}).limit(categoriesLimitNumber);
-			const latest = await Recipe.find({}).sort({_id: -1}).limit(latestLimitNumber);
-			const food = {latest};
+			const latest = await Recipe.find({}).sort({_id: -1}).limit(recipeLimitNumber);
+			const american = await Recipe.find({ 'category': 'American'}).limit(recipeLimitNumber);
+			const chinese = await Recipe.find({ 'category': 'Chinese'}).limit(recipeLimitNumber);
+			const japanese = await Recipe.find({ 'category': 'Japanese'}).limit(recipeLimitNumber);
+			const food = {latest, american, chinese, japanese};
 			res.render('index', { title: 'Cooking Blog - Home', categories, food } );
 	} catch (e) {
-		res.status(500).send({message: error.message || "Error occurred."});
+		res.status(500).send({message: e.message || "Error occurred."});
 	}
 
 }
@@ -31,7 +34,22 @@ exports.exploreCategories = async(req, res) => {
 			const categories = await Category.find({}).limit(limitNumber);
 			res.render('categories', { title: 'Cooking Blog - Categories', categories } );
 	} catch (e) {
-		res.status(500).send({message: error.message || "Error occurred."});
+		res.status(500).send({message: e.message || "Error occurred."});
+	}
+
+}
+
+/**
+ * GET /recipe/:id
+ * Recipe
+**/
+exports.exploreRecipe = async(req, res) => {
+	try {
+			let recipeId = req.params.id;
+			const recipe = await Recipe.findById(recipeId);
+			res.render('recipe', { title: 'Cooking Blog - Recipe', recipe } );
+	} catch (e) {
+		res.status(500).send({message: e.message || "Error occurred."});
 	}
 
 }
@@ -41,7 +59,7 @@ async function insertDummyRecipeData() {
 	try {
 		await Recipe.insertMany([
 			{
-				"name": "Recipe Name Goes Here",
+				"name": "Japanese recipe 1",
 				"description": `Recipe Description Goes Here`,
 				"email": "recipeemail@raddy.co.uk",
 				"ingredients": [
@@ -49,11 +67,11 @@ async function insertDummyRecipeData() {
 					"1 level teaspoon cayenne pepper",
 					"1 level teaspoon hot smoked paprika",
 				],
-				"category": "American",
-				"image": "southern-friend-chicken.jpg"
+				"category": "Japanese",
+				"image": "sushi.jpg"
 			},
 			{
-				"name": "Recipe Name Goes Here",
+				"name": "Japanese recipe 2",
 				"description": `Recipe Description Goes Here`,
 				"email": "recipeemail@raddy.co.uk",
 				"ingredients": [
@@ -61,8 +79,8 @@ async function insertDummyRecipeData() {
 					"1 level teaspoon cayenne pepper",
 					"1 level teaspoon hot smoked paprika",
 				],
-				"category": "American",
-				"image": "southern-fried-chicken.jpg"
+				"category": "Japanese",
+				"image": "sushi.jpg"
 			},
 		]);
 	} catch (e) {
