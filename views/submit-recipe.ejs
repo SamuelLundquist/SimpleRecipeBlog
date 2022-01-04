@@ -1,1 +1,61 @@
-<h1>Submit</h1>
+<!-- CTA Start -->
+<section class="px-4 py-5 my-5 text-center">
+	<h1 class="display-5 fw-bold">Submit Your Recipe</h1>
+	<div class="col-lg-6 mx-auto">
+		<p>Share your amazing recipes with thousands of people across the world. Fill out our form to get started.</p>
+	</div>
+</section>
+<!-- CTA End -->
+<!-- Form Start -->
+<section class="row justify-content-center">
+	<div class="col-8">
+		<form class="" action="/submit-recipe" enctype="multipart/form-data" method="post">
+			<div class="row g-3">
+				<div class="col-12">
+					<label for="email" class="form-label">Email</label>
+					<input type="email" class="form-control" name="email" placeholder="Enter your email." id="email" required>
+				</div>
+				<div class="col-12">
+					<label for="name" class="form-label">Recipe Name</label>
+					<input type="text" class="form-control" name="name" placeholder="Enter your recipe name." id="name" required>
+				</div>
+				<div class="col-12">
+					<label for="description" class="form-label">Description</label>
+					<textarea type="text" class="form-control" name="description" id="description" cols="30" rows="4" placeholder="Recipe description." required></textarea>
+				</div>
+				<div class="col-12">
+					<label for="ingredients" class="form-label">Ingredients</label>
+					<small>Example: Ice</small>
+					<div class="ingredientsList">
+						<div class="ingredientDiv mb-1">
+							<input type="text" class="form-control" name="ingredients" id="ingredients" required>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<a type="button" class="btn btn-outline-primary" id="addIngredientsButton">Add Ingredient</a>
+				</div>
+				<div class="col-12">
+					<label for="category">Select Category</label>
+					<select class="form-select form-control" name="category" aria-label="Category">
+						<option selected>Select Category</option>
+						<option value="American">American</option>
+						<option value="Chinese">Chinese</option>
+						<option value="Indian">Indian</option>
+						<option value="Japanese">Japanese</option>
+						<option value="Mexican">Mexican</option>
+						<option value="Thai">Thai</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="image">Product Image</label>
+					<input type="file" class="form-control" name="image" accept="image/*">
+				</div>
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary btn-lg" id="submitRecipe">Submit Recipe</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+<!-- Form End -->
