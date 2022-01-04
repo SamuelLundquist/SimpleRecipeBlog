@@ -1,10 +1,11 @@
 <% if(recipe != null) { %>
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" class="d-flex justify-content-between">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="/">Home</a></li>
 		<li class="breadcrumb-item"><a href="/explore-random">Explore Random</a></li>
 		<li class="breadcrumb-item active" aria-current="page"><%= recipe.name %></li>
 	</ol>
+	<a href="/recipe/<%= recipe._id %>" class="category__link text-end text-center text-sm-end">Choose this recipe.</a>
 </nav>
 <section class="row">
 	<div class="col-12 col-md-4">

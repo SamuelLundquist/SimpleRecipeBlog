@@ -117,8 +117,15 @@ exports.exploreRecipe = async (req, res) => {
 	try {
 		let recipeId = req.params.id;
 		const recipe = await Recipe.findById(recipeId);
+		let recipeName = 'Recipe';
+		if (recipe.name) {
+			recipeName = recipe.name;
+			if (recipe.email) {
+				recipeName = recipeName + ' by ' + recipe.email;
+			}
+		}
 		res.render('recipe', {
-			title: 'Cooking Blog - Recipe',
+			title: 'Cooking Blog - ' + recipeName,
 			recipe
 		});
 	} catch (e) {
@@ -148,6 +155,16 @@ exports.exploreRandom = async (req, res) => {
 		});
 	}
 
+}
+
+/**
+ * GET /submit-recipe
+ * Submit Recipe
+ **/
+exports.submitRecipe = async (req, res) => {
+	res.render('submit-recipe', {
+		title: 'Cooking Blog - Submit Recipe'
+	});
 }
 
 /**
