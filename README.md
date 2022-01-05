@@ -6,7 +6,7 @@ I styled the website with bootstrap and icons from font awesome. Deployed the ap
 ## Result
 You can find this website hosted at: https://nodejs-recipe-blog.herokuapp.com/
 
-**Please keep in mind that anything can be added to this site, by anyone. I am not actively monitoring its content and if you do find anything unprofessional on there, I apologize. If this occurs, please let me know so I can remove it.**
+**_WARNING: Please keep in mind that anything can be added to this site, by anyone. I am not actively monitoring its content and if you do find anything unprofessional on there, I apologize. If this occurs, please let me know so I can remove it._**
 
 ## Try on your own
 If you wish to try out this web app locally, you will need to provide a MongoDB database: https://www.mongodb.com/
